@@ -41,12 +41,11 @@
 		}
 		.toshow{
 			position:relative;
-/*			height:100%;*/
 			padding:0;
 			margin:0;
 			}
 		.toshow li {
-			position:absolute;
+			position:fixed;
 			height:900px;
 			width:100%;
 		}
@@ -81,12 +80,12 @@
 			to{transform: translateX(0);}
 		}
 		.toshow li:nth-child(2):target{
-			/*animation:ani2 0.5s ease-out;*/
+			animation:ani2 0.5s ease-out;
 			z-index:5;
 		}
 		@keyframes ani2{
-			/*from{top:350px}
-			to{top:0}*/
+			from{top:350px}
+			to{top:0}
 			
 			
 		}
@@ -114,6 +113,15 @@
 			from{transform:rotate(-360deg) scale(0.1)}
 			to{transform:rotate(0deg) scale(1.0) }
 		}
+		@keyframes  notTarget{
+			from{z-index:3}
+			to{z-index:3}
+		}
+		
+		.toshow li:not(:target){
+			animation:notTarget 1s linear;
+		}
+		
 	</style>
 	<body>
 		<div class="container">
